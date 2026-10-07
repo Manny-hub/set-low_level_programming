@@ -1,16 +1,18 @@
 #include "main.h"
 
 /**
- * factorial - ...describe what it does...
- * @n: ...describe the parameter...
+ * factorial - returns the factorial of a given number
+ * @n: the number to compute the factorial of
  *
- * Return: ...what does it return? (mention the error case)...
+ * Return: the factorial of n, or -1 if n is lower than 0
  */
 int factorial(int n)
 {
-	if (/* condition: n is invalid */)
-		return (/* error value from the brief */);
-	if (/* condition: n is the smallest valid input */)
-		return (/* factorial of that value */);
-	return (/* n times the factorial of the next smaller number */);
+	if (n < 0)
+		return (-1);
+
+	if (n == 0)
+		return (1);
+
+	return (n * factorial(n - 1));
 }

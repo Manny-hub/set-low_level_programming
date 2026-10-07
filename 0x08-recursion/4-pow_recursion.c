@@ -1,17 +1,19 @@
 #include "main.h"
 
 /**
- * _pow_recursion - ...describe what it does...
- * @x: ...describe the base...
- * @y: ...describe the exponent...
+ * _pow_recursion - returns the value of x raised to the power of y
+ * @x: the base
+ * @y: the exponent
  *
- * Return: ...what does it return? (mention the error case)...
+ * Return: x to the power of y, or -1 if y is lower than 0
  */
 int _pow_recursion(int x, int y)
 {
-	if (/* condition: exponent is invalid */)
-		return (/* error value from the brief */);
-	if (/* condition: exponent is the smallest valid value */)
-		return (/* anything to that power */);
-	return (/* x times x raised to one less power */);
+	if (y < 0)
+		return (-1);
+
+	if (y == 0)
+		return (1);
+
+	return (x * _pow_recursion(x, y - 1));
 }

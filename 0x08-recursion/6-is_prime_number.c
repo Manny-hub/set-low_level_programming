@@ -1,30 +1,33 @@
 #include "main.h"
 
 /**
- * prime_helper - ...describe what it does...
- * @n: ...the number being tested...
- * @divisor: ...the candidate divisor currently being tried...
+ * is_prime_helper - recursively checks for a divisor of n
+ * @n: the number to check
+ * @i: the current candidate divisor being tested
  *
- * Return: ...1 or 0, and when each happens...
+ * Return: 1 if no divisor was found up to sqrt(n), 0 otherwise
  */
-int prime_helper(int n, int divisor)
+int is_prime_helper(int n, int i)
 {
-	if (/* condition: divisor squared has gone past n */)
-		return (/* no divisor found, so what is n? */);
-	if (/* condition: divisor divides n evenly */)
-		return (/* found a factor, so what is n? */);
-	return (/* try the next divisor */);
+	if (i * i > n)
+		return (1);
+
+	if (n % i == 0)
+		return (0);
+
+	return (is_prime_helper(n, i + 1));
 }
 
 /**
- * is_prime_number - ...describe what it does...
- * @n: ...describe the parameter...
+ * is_prime_number - checks if an integer is a prime number
+ * @n: the number to check
  *
- * Return: ...what does it return?...
+ * Return: 1 if n is prime, 0 otherwise
  */
 int is_prime_number(int n)
 {
-	if (/* condition: n is too small to be prime */)
-		return (/* what is it? */);
-	return (/* call the helper with the smallest sensible divisor */);
+	if (n < 2)
+		return (0);
+
+	return (is_prime_helper(n, 2));
 }
