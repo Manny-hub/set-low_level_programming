@@ -60,4 +60,4 @@ Run the compiled binary directly:
 
 ## Author
 
-Julien Barbier
+Ayomide Adeyeye
